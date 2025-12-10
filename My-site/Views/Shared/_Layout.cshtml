@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>قالب Baha - قالب شخصی باها</title>
+    <partial name="_CssPartial" />
+    <meta name="theme-color" content="#0e0f10">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loading-area">
+            <div class="circle"></div>
+        </div>
+        <div class="left-side"></div>
+        <div class="right-side"></div>
+    </div>
+
+    <!-- Main Site -->
+    @RenderBody()
+    <partial name="_JsPartial" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

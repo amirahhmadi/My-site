@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="header-mobile">
+    <a class="header-toggle"><i class="fas fa-bars"></i></a>
+    <h2>باها</h2>
+</div>
+
+<nav class="header-main" data-simplebar>
+    <div class="logo">
+        <img src="img/logo.png" alt="">
+    </div>
+
+    <ul>
+        <li data-tooltip="خانه" data-position="top">
+            <a href="#home" class="icon-h fas fa-house-damage"></a>
+        </li>
+        <li data-tooltip="درباره" data-position="top">
+            <a href="#about" class="icon-a fas fa-user-tie"></a>
+        </li>
+        <li data-tooltip="رزومه" data-position="top">
+            <a href="#resume" class="icon-r fas fa-address-book"></a>
+        </li>
+        <li data-tooltip="نمونه‌کارها" data-position="top">
+            <a href="#portfolio" class="icon-p fas fa-briefcase"></a>
+        </li>
+        <li data-tooltip="بلاگ" data-position="top">
+            <a href="#blog" class="icon-b fas fa-receipt"></a>
+        </li>
+        <li data-tooltip="تماس" data-position="bottom">
+            <a href="#contact" class="icon-c fas fa-envelope"></a>
+        </li>
+    </ul>
+
+    <a class="music-bg">
+        <div class="lines">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <p>صدا</p>
+    </a>
+</nav>
+
+
+<!-- PAGE WRAPPER WITH IDs -->
+<div class="pages-wrapper">
+
+    <div id="home">
+        <partial name="_HomePartial" />
+    </div>
+
+    <div id="about">
+        <partial name="_AboutPartial" />
+    </div>
+
+    <div id="resume">
+        <partial name="_ResumePartial" />
+    </div>
+
+    <div id="portfolio">
+        <partial name="_PortfolioPartial" />
+    </div>
+
+    <div id="blog">
+        <partial name="_BlogPartial" />
+    </div>
+
+    <div id="contact">
+        <partial name="_ContactPartial" />
+    </div>
+
+</div>

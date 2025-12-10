@@ -1,0 +1,120 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using My_site.DataBase.Entities.Users
+@model My_site.Core.ViewModels.UserViewmodel.UserVM
+@{
+    ViewData["title"] = "ثبت کاربر";
+    ViewData["selected"] = "users";
+}
+
+<div class="content-wrapper" style="min-height: 797px;">
+    <section class="content-header">
+        <div class="container-fluid">
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">ایجاد گارانتی</h3>
+                        </div>
+                        <form asp-action="Register" asp-controller="User" method="post">
+
+                            <div class="card-body">
+
+                                <div class="row">
+
+                                    <!-- نام -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="FirstName"></label>
+                                            <input asp-for="FirstName" class="form-control" placeholder="نام را وارد کنید">
+                                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <!-- نام خانوادگی -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="LastName"></label>
+                                            <input asp-for="LastName" class="form-control" placeholder="نام خانوادگی">
+                                            <span asp-validation-for="LastName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <!-- ایمیل -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Email"></label>
+                                            <input asp-for="Email" class="form-control" placeholder="ایمیل">
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <!-- موبایل -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Phone"></label>
+                                            <input asp-for="Phone" class="form-control" placeholder="شماره موبایل">
+                                            <span asp-validation-for="Phone" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <!-- پسورد -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Password"></label>
+                                            <input asp-for="Password" class="form-control" placeholder="رمز عبور" type="password">
+                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <!-- تکرار پسورد -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="ConfirmPassword"></label>
+                                            <input asp-for="ConfirmPassword" class="form-control" placeholder="تکرار رمز عبور" type="password">
+                                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <!-- نقش -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Role"></label>
+                                            <select asp-for="Role" class="form-control" asp-items="Html.GetEnumSelectList<UserRole>()"></select>
+                                            <span asp-validation-for="Role" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-success">ثبت</button>
+                                <a class="btn btn-secondary" href="/Admin/User">بازگشت</a>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>

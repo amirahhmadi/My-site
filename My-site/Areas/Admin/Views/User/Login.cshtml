@@ -1,0 +1,52 @@
+﻿@model My_site.Core.ViewModels.UserViewmodel.LoginVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>پنل مدیریت | ورود</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <partial name="_PartialAdminCss"/>
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+    <div class="login-logo">
+        <a href="#"><b>ورود به پنل مدیریت</b></a>
+    </div>
+    <div class="card">
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">فرم زیر را تکمیل کنید</p>
+
+            <form asp-action="Login" asp-controller="User" asp-area="Admin" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="input-group mb-3">
+                    <input asp-for="Phone" class="form-control" placeholder="شماره موبایل" autocomplete="tel">
+                    <div class="input-group-append">
+                        <span class="fa fa-phone input-group-text"></span>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input asp-for="Password" type="password" class="form-control" placeholder="رمز عبور" autocomplete="current-password">
+                    <div class="input-group-append">
+                        <span class="fa fa-lock input-group-text"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">ورود</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<partial name="_PartialAdminJs"/>
+</body>
+</html>
