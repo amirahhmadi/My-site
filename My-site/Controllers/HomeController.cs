@@ -1,31 +1,28 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using My_site.Core.Services.AboutServices.Queries;
+using My_site.Core.Services.PortfolioServices.Queries;
 using My_site.Models;
 
 namespace My_site.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly IAboutServicesQuery _aboutQuery;
+    private readonly IPortfolioServiceQuery _portfolioQuery;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(IAboutServicesQuery aboutQuery, IPortfolioServiceQuery portfolioQuery)
     {
-        _logger = logger;
+        _aboutQuery = aboutQuery;
+        _portfolioQuery = portfolioQuery;
     }
-
     public IActionResult Index()
     {
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        var model = new HomeIndexVM
+        {
+            Abouts = _aboutQuery.GetAbout(),
+            Portfolios = _portfolioQuery.GetPortfolio()
+        };
+        return View(model);
     }
 }

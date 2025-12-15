@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameOnline.Core.ExtenstionMethods
+namespace My_site.Core.Extensions
 {
     public static class PathTools
     {
