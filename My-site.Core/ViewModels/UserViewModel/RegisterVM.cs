@@ -3,7 +3,7 @@ using My_site.DataBase.Entities.Users;
 
 namespace My_site.Core.ViewModels.UserViewmodel;
 
-public class UserVM
+public class RegisterVM
 {
     public int UserId { get; set; }
     public string? Email { get; set; }
@@ -11,7 +11,6 @@ public class UserVM
     public string Phone { get; set; }
     public string FirstName { get; set; }
     public string? LastName { get; set; }
-    public bool IsActive { get; set; }
     public UserRole Role { get; set; }
 
     [Required(ErrorMessage = "رمز عبور لازم است")]

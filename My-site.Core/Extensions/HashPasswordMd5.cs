@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace My_site.Core.Security
+namespace My_site.Core.Extensions
 {
     public static class HashPasswordMd5
     {

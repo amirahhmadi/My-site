@@ -1,8 +1,9 @@
 ﻿@{
     var selected = ViewData["selected"]?.ToString()?.ToLower();
-    var isDeletedSection = selected == "deleted-posts" || selected == "deleted-categories";
     var isDashboardActive = selected == "dashboard";
     var isUsersActive = selected == "users";
+    var isAboutActive = selected == "abouts";
+    var isPortfolioActive = selected == "portfolios";
     // var isPropertyGroupActive = selected == "propertygroup";
     // var isPropertyNameActive = selected == "propertyname";
     // var isPropertyValueActive = selected == "propertyvalue";
@@ -26,33 +27,31 @@
 
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li class="nav-item has-treeview @(isDashboardActive ? "menu-open" : "")">
-                        <a href="#" class="nav-link @(isDashboardActive ? "active" : "")">
-                            <i class="nav-icon fa fa-dashboard"></i>
-                            <p>
-                                صفحات شروع
-                                <i class="right fa fa-angle-left"></i>
-                            </p>
+                    
+                    <li class="nav-item">
+                        <a href="/Admin" class="nav-link @(isDashboardActive ? "active" : "")">
+                            <i class="nav-icon fa fa-th"></i>
+                            <p>داشبورد</p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/Admin" class="nav-link @(isDashboardActive ? "active" : "")">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>داشبورد</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>صفحه غیر فعال</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
+                    
                     <li class="nav-item">
                         <a href="/Admin/User" class="nav-link @(isUsersActive ? "active" : "")">
                             <i class="nav-icon fa fa-th"></i>
                             <p>لیست کاربر ها</p>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="/Admin/About" class="nav-link @(isAboutActive ? "active" : "")">
+                            <i class="nav-icon fa fa-th"></i>
+                            <p>درباره من</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Admin/Portfolio" class="nav-link @(isPortfolioActive ? "active" : "")">
+                            <i class="nav-icon fa fa-th"></i>
+                            <p>نمونه کار ها</p>
                         </a>
                     </li>
 @*                     <li class="nav-item has-treeview @(isPropertyActive ? "menu-open" : "")">

@@ -1,0 +1,108 @@
+﻿@using GameOnline.Core.ExtenstionMethods
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using My_site.DataBase.Entities.Users
+@model My_site.Core.ViewModels.UserViewmodel.AboutVM
+@{
+    ViewData["title"] = "افزودن/ویرایش مشخصات";
+    ViewData["selected"] = "abouts";
+}
+
+<div class="content-wrapper" style="min-height: 797px;">
+    <section class="content-header">
+        <div class="container-fluid">
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">افزودن/ویرایش مشخصات</h3>
+                        </div>
+                        <form asp-action="AddOrEdit" asp-controller="About" method="post" enctype="multipart/form-data">
+
+                            <input type="hidden" asp-for="AboutId" />
+                            <div class="card-body">
+                                <div class="row">
+
+                                    <!-- نام کامل -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="UserFullName"></label>
+                                            <input asp-for="UserFullName" class="form-control" />
+                                            <span asp-validation-for="UserFullName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <!-- درباره من -->
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label asp-for="AboutUser"></label>
+                                            <textarea asp-for="AboutUser" class="form-control"></textarea>
+                                            <span asp-validation-for="AboutUser" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Skills"></label>
+                                            <input asp-for="Skills" class="form-control" />
+                                            <span asp-validation-for="Skills" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Instagram"></label>
+                                            <input asp-for="Instagram" class="form-control" />
+                                            <span asp-validation-for="Instagram" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Linkedin"></label>
+                                            <input asp-for="Linkedin" class="form-control" />
+                                            <span asp-validation-for="Linkedin" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Github"></label>
+                                            <input asp-for="Github" class="form-control" />
+                                            <span asp-validation-for="Github" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- نمایش عکس قبلی -->
+                                @if (!string.IsNullOrEmpty(Model.ImgName))
+                                {
+                                    <td class="text-center">
+                                        <img src="@($"{PathTools.PathImageClient}/{Model.ImgName}")" style="max-height: 60px;" />
+                                    </td> 
+                                }
+
+                                <!-- فایل آپلود -->
+                                <div class="form-group">
+                                    <label>آپلود تصویر</label>
+                                    <input type="file" asp-for="ImgFile" class="form-control" />
+                                </div>
+
+                                <button type="submit" class="btn btn-success">ذخیره</button>
+                            </div>
+                        </form>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>

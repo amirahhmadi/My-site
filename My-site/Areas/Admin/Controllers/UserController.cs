@@ -37,7 +37,7 @@ namespace My_site.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(UserVM model)
+        public async Task<IActionResult> Register(RegisterVM model)
         {
             if (!ModelState.IsValid)
                 return View(model);

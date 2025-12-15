@@ -6,11 +6,34 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace My_site.DataBase.Migrations
 {
     /// <inheritdoc />
-    public partial class setdb : Migration
+    public partial class adddb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "AboutMe",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ImgName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserFullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AboutUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Instagram = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Linkedin = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Github = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Skills = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastModified = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    RemoveDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsRemove = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AboutMe", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Contacts",
                 columns: table => new
@@ -56,14 +79,8 @@ namespace My_site.DataBase.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImgName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AboutUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Instagram = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Linkedin = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Github = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Skills = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Role = table.Column<int>(type: "int", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -80,6 +97,9 @@ namespace My_site.DataBase.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AboutMe");
+
             migrationBuilder.DropTable(
                 name: "Contacts");
 

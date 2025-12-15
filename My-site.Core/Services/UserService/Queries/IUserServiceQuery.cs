@@ -8,7 +8,7 @@ namespace My_site.Core.Services.UserService.Queries;
 public interface IUserServiceQuery
 {
     Task<User?> GetUserByPhone(string phone);
-    List<UserVM> GetUsers();
+    List<RegisterVM> GetUsers();
 }
 
 public class UserServiceQuery : IUserServiceQuery
@@ -35,9 +35,9 @@ public class UserServiceQuery : IUserServiceQuery
         };
     }
 
-    public List<UserVM> GetUsers()
+    public List<RegisterVM> GetUsers()
     {
-        return _context.Users.Select(x => new UserVM
+        return _context.Users.Select(x => new RegisterVM
         {
             UserId = x.Id,
             Phone = x.Phone,

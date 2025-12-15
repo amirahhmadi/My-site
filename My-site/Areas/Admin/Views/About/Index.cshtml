@@ -1,12 +1,13 @@
-﻿@model IEnumerable<My_site.Core.ViewModels.UserViewmodel.RegisterVM>
+﻿@using GameOnline.Core.ExtenstionMethods
+@model IEnumerable<My_site.Core.ViewModels.UserViewmodel.AboutVM>
 @{
-    ViewData["title"] = "لیست کاربر";
-    ViewData["selected"] = "users";
+    ViewData["title"] = "درباره من";
+    ViewData["selected"] = "abouts";
 }
 <div class="content-wrapper">
     <section class="content-header">
         <div class="container-fluid">
-            <a class="btn btn-success" href="/Admin/User/Register">ایجاد کاربر جدید</a>
+            <a class="btn btn-success" href="/Admin/About/AddOrEdit/@Model.First().AboutId">ویرایش مشخصات</a>
         </div>
     </section>
     <section class="content">
@@ -14,7 +15,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">لیست کاربر ها</h3>
+                        <h3 class="card-title">درباره من</h3>
                     </div>
                     <div class="card-body">
                         <div id="example1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
@@ -23,29 +24,27 @@
                                     <table id="example1" class="table table-bordered table-striped dataTable" role="grid">
                                         <thead>
                                             <tr role="row">
-                                                <th>نام</th>
-                                                <th>نام خانوداگی</th>
-                                                <th>شماره تلفن</th>
-                                                <th>ایمیل</th>
-                                                <th>نقش</th>
-                                                <th>زمان ثبت</th>
-                                                <th>عملیات</th>
+                                                <th>عکس</th>
+                                                <th>نام و نام خانوادگی</th>
+                                                <th>بیوگرافی</th>
+                                                <th>مهارت ها</th>
+                                                <th>لینک اینستاگرام</th>
+                                                <th>لینک لینکدین</th>
+                                                <th>لینک گیت هاب</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach (var item in Model)
                                             {
                                                 <tr role="row" class="odd">
-                                                    <td>@item.FirstName</td>
-                                                    <td>@item.LastName</td>
-                                                    <td>@item.Phone</td>
-                                                    <td>@item.Email</td>
-                                                    <td>@item.Role</td>
-                                                    <td>@item.CreationDate</td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-warning btn-sm">ویرایش</a>
-                                                        <a href="#" class="btn btn-danger btn-sm">حذف</a>
-                                                    </td>
+                                                    <td class="text-center">
+                                                        <img src="@($"{PathTools.PathImageClient}/{item.ImgName}")" alt="@item.ImgName" style="max-height: 60px;" />
+                                                    </td>                                                    <td>@item.UserFullName</td>
+                                                    <td>@item.AboutUser</td>
+                                                    <td>@item.Skills</td>
+                                                    <td>@item.Instagram</td>
+                                                    <td>@item.Linkedin</td>
+                                                    <td>@item.Github</td>
                                                 </tr>
                                             }
                                         </tbody>

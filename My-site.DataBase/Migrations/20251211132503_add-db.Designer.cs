@@ -12,8 +12,8 @@ using My_site.DataBase.Context;
 namespace My_site.DataBase.Migrations
 {
     [DbContext(typeof(My_SiteContext))]
-    [Migration("20251209152951_set-db")]
-    partial class setdb
+    [Migration("20251211132503_add-db")]
+    partial class adddb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -95,7 +95,7 @@ namespace My_site.DataBase.Migrations
                     b.ToTable("Portfolios");
                 });
 
-            modelBuilder.Entity("My_site.DataBase.Entities.Users.User", b =>
+            modelBuilder.Entity("My_site.DataBase.Entities.Users.AboutMe", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -108,13 +108,6 @@ namespace My_site.DataBase.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Github")
                         .HasColumnType("nvarchar(max)");
@@ -131,10 +124,49 @@ namespace My_site.DataBase.Migrations
                     b.Property<DateTime?>("LastModified")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("Linkedin")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Linkedin")
+                    b.Property<DateTime?>("RemoveDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Skills")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserFullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AboutMe");
+                });
+
+            modelBuilder.Entity("My_site.DataBase.Entities.Users.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsRemove")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
@@ -150,9 +182,6 @@ namespace My_site.DataBase.Migrations
 
                     b.Property<int>("Role")
                         .HasColumnType("int");
-
-                    b.Property<string>("Skills")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

@@ -12,11 +12,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Services\PortfolioServices\Commands\" />
     <Folder Include="Services\UserService\Queries\" />
+    <Folder Include="ViewModels\PortfolioViewModel\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="10.0.1" />
   </ItemGroup>
 

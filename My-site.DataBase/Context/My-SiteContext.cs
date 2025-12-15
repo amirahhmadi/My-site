@@ -10,6 +10,7 @@ public class My_SiteContext : DbContext
     public My_SiteContext(DbContextOptions<My_SiteContext> options) : base(options) { }
 
     public DbSet<User> Users { get; set; }
+    public DbSet<AboutMe> AboutMe { get; set; }
     public DbSet<Portfolio> Portfolios { get; set; }
     public DbSet<Contact> Contacts { get; set; }
 }
