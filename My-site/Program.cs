@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using My_site.Core.Services.AboutServices.Commands;
 using My_site.Core.Services.AboutServices.Queries;
+using My_site.Core.Services.ContactService.Commands;
+using My_site.Core.Services.ContactService.Queries;
 using My_site.Core.Services.PortfolioServices.Commands;
 using My_site.Core.Services.PortfolioServices.Queries;
 using My_site.Core.Services.UserService.Commands;
@@ -25,6 +27,8 @@ builder.Services.AddTransient<IAboutServicesQuery, AboutServicesQuery>();
 builder.Services.AddTransient<IAboutServicesCommand, AboutServicesCommand>();
 builder.Services.AddTransient<IPortfolioServiceCommand, PortfolioServiceCommand>();
 builder.Services.AddTransient<IPortfolioServiceQuery, PortfolioServiceQuery>();
+builder.Services.AddTransient<IContactServiceCommands, ContactServiceCommands>();
+builder.Services.AddTransient<IContactServiceQuery, ContactServiceQuery>();
 
 builder.Services.AddAuthentication("CookieAuth")
     .AddCookie("CookieAuth", options =>

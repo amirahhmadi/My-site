@@ -19,7 +19,7 @@
             <a href="#portfolio" class="icon-p fas fa-briefcase"></a>
         </li>
         <li data-tooltip="بلاگ" data-position="top">
-            <a href="#blog" class="icon-b fas fa-receipt"></a>
+            <a href="" class="icon-b fas fa-receipt"></a>
         </li>
         <li data-tooltip="تماس" data-position="bottom">
             <a href="#contact" class="icon-c fas fa-envelope"></a>
@@ -55,7 +55,19 @@
     </div>
 
     <div id="contact">
-        <partial name="_ContactPartial" />
+        <partial name="_ContactPartial" model="Model.Contact" />
     </div>
 
 </div>
+<!-- Scroll to contact if ModelState is invalid -->
+@if (Model.Contact != null && !ViewData.ModelState.IsValid)
+{
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var contact = document.getElementById('contact');
+            if(contact) {
+                contact.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+}

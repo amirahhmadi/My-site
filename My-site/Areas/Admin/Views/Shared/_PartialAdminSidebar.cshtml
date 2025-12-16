@@ -4,6 +4,7 @@
     var isUsersActive = selected == "users";
     var isAboutActive = selected == "abouts";
     var isPortfolioActive = selected == "portfolios";
+    var isContactActive = selected == "contacts";
     // var isPropertyGroupActive = selected == "propertygroup";
     // var isPropertyNameActive = selected == "propertyname";
     // var isPropertyValueActive = selected == "propertyvalue";
@@ -52,6 +53,12 @@
                         <a href="/Admin/Portfolio" class="nav-link @(isPortfolioActive ? "active" : "")">
                             <i class="nav-icon fa fa-th"></i>
                             <p>نمونه کار ها</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Admin/Contact" class="nav-link @(isContactActive ? "active" : "")">
+                            <i class="nav-icon fa fa-th"></i>
+                            <p>پیام ها</p>
                         </a>
                     </li>
 @*                     <li class="nav-item has-treeview @(isPropertyActive ? "menu-open" : "")">

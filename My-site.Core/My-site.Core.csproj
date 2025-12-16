@@ -12,8 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Services\ContactService\Queries\" />
     <Folder Include="Services\PortfolioServices\Commands\" />
     <Folder Include="Services\UserService\Queries\" />
+    <Folder Include="ViewModels\ContactViewModel\" />
     <Folder Include="ViewModels\PortfolioViewModel\" />
   </ItemGroup>
 
